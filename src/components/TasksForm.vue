@@ -2,7 +2,7 @@
 import { reactive } from "vue";
 
 import type Task from "@/types/Task";
-import TaskSituation from "@/types/TaskSituation";
+import TaskStatus from "@/types/TaskStatus";
 
 const props = defineProps<{
   task: Task;
@@ -41,8 +41,8 @@ const form = reactive(props.task);
     <div>
       <input
         type="radio"
-        v-model="form.situation"
-        :value="TaskSituation.unstarted"
+        v-model="form.status"
+        :value="TaskStatus.unstarted"
         name="situation"
       />
       <label>Unstarted</label>
@@ -51,8 +51,8 @@ const form = reactive(props.task);
     <div>
       <input
         type="radio"
-        v-model="form.situation"
-        :value="TaskSituation.started"
+        v-model="form.status"
+        :value="TaskStatus.started"
         name="situation"
       />
       <label>Started</label>
@@ -61,8 +61,8 @@ const form = reactive(props.task);
     <div>
       <input
         type="radio"
-        v-model="form.situation"
-        :value="TaskSituation.completed"
+        v-model="form.status"
+        :value="TaskStatus.completed"
         name="situation"
       />
       <label>Completed</label>

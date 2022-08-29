@@ -1,12 +1,12 @@
 import { reactive } from "vue";
-import TaskSituation from "@/types/TaskSituation";
+import TaskStatus from "@/types/TaskStatus";
 
 export default () => {
   const task = reactive({
     name: "",
     frequency: "",
     description: "",
-    situation: TaskSituation.unstarted,
+    status: TaskStatus.unstarted,
     supervision: {
       approved: false,
       reviewed: false,

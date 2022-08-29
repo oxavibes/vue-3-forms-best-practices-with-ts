@@ -1,10 +1,10 @@
-import type TaskSituation from "@/types/TaskSituation";
+import type TaskStatus from "@/types/TaskStatus";
 
 interface Task {
   name: string;
   frequency: string;
   description: string;
-  situation: TaskSituation;
+  status: TaskStatus;
   supervision: {
     approved: boolean;
     reviewed: boolean;
