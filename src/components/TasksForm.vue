@@ -4,6 +4,7 @@ import AppInput from "@/components/form/AppInput.vue";
 
 import type Task from "@/types/Task";
 import TaskStatus from "@/types/TaskStatus";
+import AppSelect from "./form/AppSelect.vue";
 
 const props = defineProps<{
   task: Task;
@@ -15,20 +16,14 @@ const form = reactive(props.task);
 
 <template>
   <form>
-    <label>Select a frequency</label>
-    <select v-model="form.frequency">
-      <option
-        v-for="option in frequencies"
-        :value="option"
-        :key="option"
-        :selected="option === form.frequency"
-      >
-        {{ option }}
-      </option>
-    </select>
+    <AppSelect
+      :options="frequencies"
+      label="Select a frecuency"
+      v-model:frequency="form.frequency"
+    />
 
     <h3>Name & describe your task</h3>
-    <AppInput label="Name" v-model="form.name" type="text" />
+    <AppInput label="Name" v-model:name="form.name" type="text" />
 
     <label>Description</label>
     <textarea
