@@ -2,27 +2,25 @@
 withDefaults(
   defineProps<{
     label?: string;
-    modelValue?: string | number;
+    name?: string | number;
   }>(),
   {
     label: "",
-    modelValue: "",
+    name: "",
   }
 );
 
-defineEmits(["update:modelValue"]);
+defineEmits(["update:name"]);
 </script>
 
 <template>
   <label v-if="label">{{ label }}</label>
   <input
     v-bind="$attrs"
-    :value="modelValue"
+    :value="name"
     :placeholder="label"
     class="field"
-    @input="
-      $emit('update:modelValue', ($event.target as HTMLInputElement).value)
-    "
+    @input="$emit('update:name', ($event.target as HTMLInputElement).value)"
   />
 </template>
 
