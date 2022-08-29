@@ -5,6 +5,7 @@ import AppInput from "@/components/form/AppInput.vue";
 import type Task from "@/types/Task";
 import TaskStatus from "@/types/TaskStatus";
 import AppSelect from "./form/AppSelect.vue";
+import AppCheckbox from "./form/AppCheckbox.vue";
 
 const props = defineProps<{
   task: Task;
@@ -65,21 +66,17 @@ const form = reactive(props.task);
 
     <h3>Supervision</h3>
     <div>
-      <input
-        type="checkbox"
-        v-model="form.supervision.reviewed"
-        class="field"
+      <AppCheckbox
+        label="Reviewed"
+        v-model:supervision="form.supervision.reviewed"
       />
-      <label>Reviewed</label>
     </div>
 
     <div>
-      <input
-        type="checkbox"
-        v-model="form.supervision.approved"
-        class="field"
+      <AppCheckbox
+        label="Reviewed"
+        v-model:supervision="form.supervision.approved"
       />
-      <label>Approved</label>
     </div>
 
     <button class="btn btn-primary" type="submit">Submit</button>
