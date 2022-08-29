@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import AppInput from "@/components/form/AppInput.vue";
+import AppSelect from "@/components/form/AppSelect.vue";
+import AppCheckbox from "@/components/form/AppCheckbox.vue";
+import AppRadio from "@/components/form/AppRadio.vue";
 
 import type Task from "@/types/Task";
 import TaskStatus from "@/types/TaskStatus";
-import AppSelect from "./form/AppSelect.vue";
-import AppCheckbox from "./form/AppCheckbox.vue";
 
 const props = defineProps<{
   task: Task;
@@ -33,35 +34,32 @@ const form = reactive(props.task);
       class="field"
     ></textarea>
 
-    <h3>Task situation</h3>
+    <h3>Task status</h3>
     <div>
-      <input
-        type="radio"
-        v-model="form.status"
+      <AppRadio
+        name="status"
+        label="Unstarted"
+        v-model:status="form.status"
         :value="TaskStatus.unstarted"
-        name="situation"
       />
-      <label>Unstarted</label>
     </div>
 
     <div>
-      <input
-        type="radio"
-        v-model="form.status"
+      <AppRadio
+        name="status"
+        label="Started"
+        v-model:status="form.status"
         :value="TaskStatus.started"
-        name="situation"
       />
-      <label>Started</label>
     </div>
 
     <div>
-      <input
-        type="radio"
-        v-model="form.status"
+      <AppRadio
+        name="status"
+        label="Completed"
+        v-model:status="form.status"
         :value="TaskStatus.completed"
-        name="situation"
       />
-      <label>Completed</label>
     </div>
 
     <h3>Supervision</h3>

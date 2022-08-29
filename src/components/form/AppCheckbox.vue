@@ -14,7 +14,6 @@ defineEmits(["update:supervision"]);
 </script>
 
 <template>
-  <label v-if="label">{{ label }}</label>
   <input
     v-bind="$attrs"
     type="checkbox"
@@ -24,6 +23,7 @@ defineEmits(["update:supervision"]);
     "
     class="field"
   />
+  <label v-if="label">{{ label }}</label>
 </template>
 
 <style scoped></style>
