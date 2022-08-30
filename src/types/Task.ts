@@ -1,10 +1,8 @@
-import type TaskStatus from "@/types/TaskStatus";
-
 interface Task {
   name: string;
   frequency: string;
   description: string;
-  status: TaskStatus;
+  status: number;
   supervision: {
     approved: boolean;
     reviewed: boolean;
