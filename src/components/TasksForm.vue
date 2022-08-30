@@ -58,7 +58,7 @@ const statusOpts = [
 
     <div>
       <AppCheckbox
-        label="Reviewed"
+        label="Approved"
         v-model:supervision="form.supervision.approved"
       />
     </div>
