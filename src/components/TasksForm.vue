@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { reactive } from "vue";
+import type Task from "@/types/Task";
+
 import AppInput from "@/components/form/AppInput.vue";
 import AppSelect from "@/components/form/AppSelect.vue";
 import AppCheckbox from "@/components/form/AppCheckbox.vue";
-import AppRadio from "@/components/form/AppRadio.vue";
-
-import type Task from "@/types/Task";
-import TaskStatus from "@/types/TaskStatus";
+import AppRadioGroup from "@/components/form/AppRadioGroup.vue";
 
 const props = defineProps<{
   task: Task;
@@ -14,6 +13,12 @@ const props = defineProps<{
 }>();
 
 const form = reactive(props.task);
+
+const statusOpts = [
+  { label: "Unstarted", value: 0 },
+  { label: "Started", value: 1 },
+  { label: "Completed", value: 2 },
+];
 </script>
 
 <template>
@@ -36,29 +41,10 @@ const form = reactive(props.task);
 
     <h3>Task status</h3>
     <div>
-      <AppRadio
+      <AppRadioGroup
         name="status"
-        label="Unstarted"
+        :options="statusOpts"
         v-model:status="form.status"
-        :value="TaskStatus.unstarted"
-      />
-    </div>
-
-    <div>
-      <AppRadio
-        name="status"
-        label="Started"
-        v-model:status="form.status"
-        :value="TaskStatus.started"
-      />
-    </div>
-
-    <div>
-      <AppRadio
-        name="status"
-        label="Completed"
-        v-model:status="form.status"
-        :value="TaskStatus.completed"
       />
     </div>
 
