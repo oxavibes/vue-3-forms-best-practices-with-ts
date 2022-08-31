@@ -5,6 +5,7 @@ import type Task from "@/types/Task";
 import AppInput from "@/components/form/AppInput.vue";
 import AppSelect from "@/components/form/AppSelect.vue";
 import AppCheckbox from "@/components/form/AppCheckbox.vue";
+import AppTextarea from "@/components/form/AppTextarea.vue";
 import AppRadioGroup from "@/components/form/AppRadioGroup.vue";
 
 const props = defineProps<{
@@ -32,12 +33,7 @@ const statusOpts = [
     <h3>Name & describe your task</h3>
     <AppInput label="Name" v-model:name="form.name" type="text" />
 
-    <label>Description</label>
-    <textarea
-      v-model="form.description"
-      placeholder="Description"
-      class="field"
-    ></textarea>
+    <AppTextarea label="Descripcion" v-model:description="form.description" />
 
     <h3>Task status</h3>
     <div>
