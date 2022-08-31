@@ -64,7 +64,7 @@ const handleSubmit = () => {
 
     <BaseTextarea label="Descripcion" v-model:description="form.description" />
 
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button type="submit">Submit</button>
   </form>
 </template>
 

@@ -19,8 +19,11 @@ withDefaults(
     @input="
       $emit('update:description', ($event.target as HTMLInputElement).value)
     "
-    class="field"
   ></textarea>
 </template>
 
-<style scoped></style>
+<style scoped>
+textarea {
+  resize: none;
+}
+</style>
