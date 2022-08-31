@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, toRaw } from "vue";
 import type Task from "@/types/Task";
 
 import AppInput from "@/components/form/AppInput.vue";
@@ -20,10 +20,16 @@ const statusOpts = [
   { label: "Started", value: 1 },
   { label: "Completed", value: 2 },
 ];
+
+const emit = defineEmits<{ (e: "onSubmit", task: Task): void }>();
+
+const handleSubmit = () => {
+  emit("onSubmit", toRaw(form));
+};
 </script>
 
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <AppSelect
       :options="frequencies"
       label="Select a frecuency"
