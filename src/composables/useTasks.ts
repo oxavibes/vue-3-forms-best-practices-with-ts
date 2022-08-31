@@ -28,7 +28,7 @@ export default () => {
 
   const handleSubmit = async (payload: Payload) => {
     try {
-      const response = await postTask(payload);
+      await postTask(payload);
     } catch (err) {
       console.log("Error", err);
     }
