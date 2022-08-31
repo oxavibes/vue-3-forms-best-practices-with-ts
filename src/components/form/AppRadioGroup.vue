@@ -3,20 +3,32 @@ import AppRadio from "@/components/form/AppRadio.vue";
 
 defineProps<{
   name: string;
+  vertical: boolean;
   status: string | number;
   options: { label: string; value: number }[];
 }>();
 </script>
 <template>
-  <AppRadio
+  <component
     v-for="option in options"
-    :name="name"
-    :status="status"
     :key="option.value"
-    :label="option.label"
-    :value="option.value"
-    @update:status="$emit('update:status', $event)"
-  />
+    :is="vertical ? 'div' : 'span'"
+    :class="{
+      horizontal: !vertical,
+    }"
+  >
+    <AppRadio
+      :name="name"
+      :status="status"
+      :label="option.label"
+      :value="option.value"
+      @update:status="$emit('update:status', $event)"
+    />
+  </component>
 </template>
 
-<style scoped></style>
+<style scoped>
+.horizontal {
+  margin-right: 5px;
+}
+</style>

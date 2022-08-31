@@ -42,6 +42,7 @@ const statusOpts = [
     <h3>Task status</h3>
     <div>
       <AppRadioGroup
+        vertical
         name="status"
         :options="statusOpts"
         v-model:status="form.status"
