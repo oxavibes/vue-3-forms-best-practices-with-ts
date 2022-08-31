@@ -6,8 +6,9 @@ const { task, frequencies, handleSubmit } = useTasks();
 </script>
 
 <template>
-  <div>
-    <h1>Create a task</h1>
+  <div class="section">
+    <h2>Create task</h2>
+
     <TasksForm
       :task="task"
       :frequencies="frequencies"
@@ -17,4 +18,13 @@ const { task, frequencies, handleSubmit } = useTasks();
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  text-align: center;
+}
+.section {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+</style>

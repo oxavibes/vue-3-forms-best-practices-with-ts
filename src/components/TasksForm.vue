@@ -30,41 +30,39 @@ const handleSubmit = () => {
 
 <template>
   <form @submit.prevent="handleSubmit">
+    <BaseInput label="Name" v-model:name="form.name" type="text" />
+
     <BaseSelect
       :options="frequencies"
       label="Select a frecuency"
       v-model:frequency="form.frequency"
     />
 
-    <h3>Name & describe your task</h3>
-    <BaseInput label="Name" v-model:name="form.name" type="text" />
-
-    <BaseTextarea label="Descripcion" v-model:description="form.description" />
-
-    <h3>Task status</h3>
-    <div>
+    <fieldset>
+      <legend>Task status</legend>
       <BaseRadioGroup
         vertical
         name="status"
         :options="statusOpts"
         v-model:status="form.status"
       />
-    </div>
+    </fieldset>
 
-    <h3>Supervision</h3>
-    <div>
+    <fieldset>
+      <legend>Supervision</legend>
+
       <BaseCheckbox
         label="Reviewed"
         v-model:supervision="form.supervision.reviewed"
       />
-    </div>
 
-    <div>
       <BaseCheckbox
         label="Approved"
         v-model:supervision="form.supervision.approved"
       />
-    </div>
+    </fieldset>
+
+    <BaseTextarea label="Descripcion" v-model:description="form.description" />
 
     <button class="btn btn-primary" type="submit">Submit</button>
   </form>

@@ -9,26 +9,15 @@ defineProps<{
 }>();
 </script>
 <template>
-  <component
+  <BaseRadio
     v-for="option in options"
+    :name="name"
     :key="option.value"
-    :is="vertical ? 'div' : 'span'"
-    :class="{
-      horizontal: !vertical,
-    }"
-  >
-    <BaseRadio
-      :name="name"
-      :status="status"
-      :label="option.label"
-      :value="option.value"
-      @update:status="$emit('update:status', $event)"
-    />
-  </component>
+    :status="status"
+    :label="option.label"
+    :value="option.value"
+    @update:status="$emit('update:status', $event)"
+  />
 </template>
 
-<style scoped>
-.horizontal {
-  margin-right: 5px;
-}
-</style>
+<style scoped></style>
