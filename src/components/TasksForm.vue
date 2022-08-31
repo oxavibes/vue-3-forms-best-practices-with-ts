@@ -2,11 +2,11 @@
 import { reactive, toRaw } from "vue";
 import type Task from "@/types/Task";
 
-import AppInput from "@/components/form/AppInput.vue";
-import AppSelect from "@/components/form/AppSelect.vue";
-import AppCheckbox from "@/components/form/AppCheckbox.vue";
-import AppTextarea from "@/components/form/AppTextarea.vue";
-import AppRadioGroup from "@/components/form/AppRadioGroup.vue";
+import BaseInput from "@/components/form/BaseInput.vue";
+import BaseSelect from "@/components/form/BaseSelect.vue";
+import BaseCheckbox from "@/components/form/BaseCheckbox.vue";
+import BaseTextarea from "@/components/form/BaseTextarea.vue";
+import BaseRadioGroup from "@/components/form/BaseRadioGroup.vue";
 
 const props = defineProps<{
   task: Task;
@@ -30,20 +30,20 @@ const handleSubmit = () => {
 
 <template>
   <form @submit.prevent="handleSubmit">
-    <AppSelect
+    <BaseSelect
       :options="frequencies"
       label="Select a frecuency"
       v-model:frequency="form.frequency"
     />
 
     <h3>Name & describe your task</h3>
-    <AppInput label="Name" v-model:name="form.name" type="text" />
+    <BaseInput label="Name" v-model:name="form.name" type="text" />
 
-    <AppTextarea label="Descripcion" v-model:description="form.description" />
+    <BaseTextarea label="Descripcion" v-model:description="form.description" />
 
     <h3>Task status</h3>
     <div>
-      <AppRadioGroup
+      <BaseRadioGroup
         vertical
         name="status"
         :options="statusOpts"
@@ -53,14 +53,14 @@ const handleSubmit = () => {
 
     <h3>Supervision</h3>
     <div>
-      <AppCheckbox
+      <BaseCheckbox
         label="Reviewed"
         v-model:supervision="form.supervision.reviewed"
       />
     </div>
 
     <div>
-      <AppCheckbox
+      <BaseCheckbox
         label="Approved"
         v-model:supervision="form.supervision.approved"
       />

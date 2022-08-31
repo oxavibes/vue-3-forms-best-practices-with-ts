@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppRadio from "@/components/form/AppRadio.vue";
+import BaseRadio from "@/components/form/BaseRadio.vue";
 
 defineProps<{
   name: string;
@@ -17,7 +17,7 @@ defineProps<{
       horizontal: !vertical,
     }"
   >
-    <AppRadio
+    <BaseRadio
       :name="name"
       :status="status"
       :label="option.label"
